@@ -47,7 +47,7 @@ class Abbigliamento extends Prodotto
     }
 }
 
-
+// creo istanza maglietta
 $maglietta = new Abbigliamento("Perfect Tee", "Levi's", 20, "Un morbido girocollo classico che si abbina con tutto", true, "M", "nero", "cotone");
 
 
@@ -67,7 +67,7 @@ var_dump($maglietta);
 </head>
 
 <body>
-    // maglietta
+    <!-- maglietta -->
     <h2><?php echo $maglietta->nome; ?></h2>
     <h3><?php echo $maglietta->marca; ?></h3>
     <h4>Prezzo: <?php echo $maglietta->prezzo; ?> euro</h4>
@@ -75,7 +75,8 @@ var_dump($maglietta);
     <p>Colore: <?php echo $maglietta->colore; ?></p>
     <p>Taglia: <?php echo $maglietta->taglia; ?></p>
     <p>100% <?php echo $maglietta->materiale; ?></p>
-    <p>La maglietta al momento <?php echo ($maglietta->getStock() == true ? 'è' : 'non è' ); ?> disponibile!</p>
+    <p>La maglietta al momento <?php echo ($maglietta->getStock() == true ? 'è' : 'non è'); ?> disponibile!</p>
+    <!-- /maglietta -->
 
 </body>
 
