@@ -35,7 +35,7 @@ class Abbigliamento extends Prodotto
 {
     public $taglia;
     public $colore;
-    public $materiale;
+    public $finish;
 
 
     public function __construct($_nome, $_marca, $_prezzo, $_descrizione, $_inStock, $_taglia, $_colore, $_materiale)
@@ -47,12 +47,29 @@ class Abbigliamento extends Prodotto
     }
 }
 
+// classe cosmetici di prodotto
+class Cosmetici extends Prodotto
+{
+    public $formato;
+    public $colore;
+    public $finish;
+
+
+    public function __construct($_nome, $_marca, $_prezzo, $_descrizione, $_inStock, $_formato, $_colore, $_finish)
+    {
+        parent::__construct($_nome, $_marca, $_prezzo, $_descrizione, $_inStock);
+        $this->formato = $_formato;
+        $this->colore = $_colore;
+        $this->finish = $_finish;
+    }
+}
+
 // creo istanza maglietta
 $maglietta = new Abbigliamento("Perfect Tee", "Levi's", 20, "Un morbido girocollo classico che si abbina con tutto", true, "M", "nero", "cotone");
+$smalto = new Cosmetici("Top Coat Matte", "Nail Studio", 16.99, "Top Coat Matte ideale per sigillare l’applicazione dello smalto semipermanente", false, "7 ml", "nero", "Top Coat");
 
 
-
-var_dump($maglietta);
+// var_dump($maglietta, $smalto);
 
 ?>
 
@@ -75,8 +92,21 @@ var_dump($maglietta);
     <p>Colore: <?php echo $maglietta->colore; ?></p>
     <p>Taglia: <?php echo $maglietta->taglia; ?></p>
     <p>100% <?php echo $maglietta->materiale; ?></p>
-    <p>La maglietta al momento <?php echo ($maglietta->getStock() == true ? 'è' : 'non è'); ?> disponibile!</p>
+    <p>Il prodotto al momento <?php echo ($maglietta->getStock() == true ? 'è' : 'non è'); ?> disponibile! <?php echo ($maglietta->getStock() == true ? '😍' : '😭'); ?></p>
     <!-- /maglietta -->
+
+    <hr>
+
+    <!-- smalto -->
+    <h2><?php echo $smalto->nome; ?></h2>
+    <h3><?php echo $smalto->marca; ?></h3>
+    <h4>Prezzo: <?php echo $smalto->prezzo; ?> euro</h4>
+    <p>Descrizione: <?php echo $smalto->descrizione; ?></p>
+    <p>Colore: <?php echo $smalto->colore; ?></p>
+    <p>Formato: <?php echo $smalto->formato; ?></p>
+    <p>Finish: <?php echo $smalto->finish; ?></p>
+    <p>Il prodotto al momento <?php echo ($smalto->getStock() == true ? 'è' : 'non è'); ?> disponibile! <?php echo ($smalto->getStock() == true ? '😍' : '😭'); ?></p>
+    <!-- /smalto -->
 
 </body>
 
